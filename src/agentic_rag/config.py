@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     # "chroma" (zero-setup, default) or "pgvector"
     vector_backend: str = "chroma"
     chroma_path: str = ".chroma"
-    collection: str = "kb"
+    collection: str = "knowledge_base"
     pg_dsn: str = "postgresql://postgres:postgres@localhost:5432/rag"
 
     top_k: int = 5

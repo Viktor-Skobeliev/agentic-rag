@@ -44,7 +44,10 @@ class OpenAIRagLLM:
             ],
         )
         content = response.choices[0].message.content or "{}"
-        parsed = json.loads(content)
+        try:
+            parsed = json.loads(content)
+        except json.JSONDecodeError:
+            return {}
         return parsed if isinstance(parsed, dict) else {}
 
     def grade(self, question: str, docs: list[Document]) -> list[str]:
