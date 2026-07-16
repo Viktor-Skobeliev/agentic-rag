@@ -1,5 +1,7 @@
 # Agentic RAG
 
+[![CI](https://github.com/Viktor-Skobeliev/agentic-rag/actions/workflows/ci.yml/badge.svg)](https://github.com/Viktor-Skobeliev/agentic-rag/actions/workflows/ci.yml)
+
 A retrieval-augmented question-answering system that **grounds every answer in
 sources, refuses to answer when the knowledge base has no answer, and checks its
 own output before returning it** — with an offline evaluation harness that
@@ -97,7 +99,9 @@ measurable delta instead of a vibe.
 make check   # ruff + mypy(strict) + pytest
 ```
 
-The suite runs offline with fake embedder / store / LLM, and exercises the graph
+**53 tests plus 8 eval scenarios, all offline** with fake embedder / store / LLM —
+no network, no API key needed. They cover chunking, the embedder and LLM JSON
+parsing, both vector stores, every graph node and routing branch, and the graph
 end to end: the happy path, the no-relevant-documents path, the regenerate-on-
 ungrounded loop, and the fallback after the attempt cap.
 
