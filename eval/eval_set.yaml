@@ -1,0 +1,47 @@
+# Evaluation set for the knowledge-base assistant.
+#
+# Each case has:
+#   question       - what we ask
+#   answerable      - is the answer present in the corpus?
+#   expected_source - the file that should be retrieved (answerable cases)
+#   must_contain    - substrings the answer must include (answerable cases)
+#
+# The harness measures retrieval hit-rate, answer groundedness and whether the
+# system correctly says "no data" when the answer is absent.
+
+- question: What are the core working hours?
+  answerable: true
+  expected_source: remote-work.md
+  must_contain: ["11:00", "15:00"]
+
+- question: How much is the home-office budget?
+  answerable: true
+  expected_source: remote-work.md
+  must_contain: ["1000"]
+
+- question: How long can production database access be granted for?
+  answerable: true
+  expected_source: security.md
+  must_contain: ["7 days"]
+
+- question: How many paid vacation days do employees get per year?
+  answerable: true
+  expected_source: onboarding.md
+  must_contain: ["20"]
+
+- question: What is the daily meal allowance while travelling?
+  answerable: true
+  expected_source: expenses.md
+  must_contain: ["50"]
+
+- question: When are approved expenses paid out?
+  answerable: true
+  expected_source: expenses.md
+  must_contain: ["month"]
+
+# Not answerable: the corpus says nothing about a pet policy or stock options.
+- question: What is the company pet policy in the office?
+  answerable: false
+
+- question: How many stock options do new engineers receive?
+  answerable: false

@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Local vector store and secrets
+.chroma/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
